@@ -1,0 +1,65 @@
+[
+  {
+    "alertStrategy": {
+      "autoClose": "432000s"
+    },
+    "combiner": "OR",
+    "conditions": [
+      {
+        "conditionThreshold": {
+          "aggregations": [
+            {
+              "alignmentPeriod": "86400s",
+              "perSeriesAligner": "ALIGN_MEAN"
+            }
+          ],
+          "comparison": "COMPARISON_LT",
+          "duration": "0s",
+          "filter": "resource.type = \"spanner_instance\" AND metric.type = \"spanner.googleapis.com/instance/cpu/utilization\"",
+          "thresholdValue": 0.3,
+          "trigger": {
+            "count": 1
+          }
+        },
+        "displayName": "Cloud Spanner Instance - CPU utilization"
+      }
+    ],
+    "displayName": "CPU Utilisation for Spanner Alert Incident",
+    "documentation": {
+      "subject": "CPU Utilisation for Spanner Alert Incident"
+    },
+    "enabled": true
+  },
+  {
+    "alertStrategy": {
+      "autoClose": "432000s"
+    },
+    "combiner": "OR",
+    "conditions": [
+      {
+        "conditionThreshold": {
+          "aggregations": [
+            {
+              "alignmentPeriod": "86400s",
+              "perSeriesAligner": "ALIGN_MEAN"
+            }
+          ],
+          "comparison": "COMPARISON_LT",
+          "duration": "0s",
+          "filter": "resource.type = \"spanner_instance\" AND metric.type = \"spanner.googleapis.com/instance/storage/utilization\"",
+          "thresholdValue": 0.3,
+          "trigger": {
+            "count": 1
+          }
+        },
+        "displayName": "Cloud Spanner Instance - Storage utilization"
+      }
+    ],
+    "displayName": "Storage Utilisation for Spanner Instance",
+    "documentation": {
+      "subject": "Storage Utilisation for Spanner Alert Incident"
+    },
+    "enabled": true
+  }
+]
+  
